@@ -46,7 +46,7 @@
     "feathers-client": ">=1.9.0",
     "jwt-decode": "^2.2.0",
     "object-diff": "^0.0.4",
-    "cross-env": "^5.1.4",
+    "cross-env": "^5.1.4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
