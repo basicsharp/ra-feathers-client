@@ -6,7 +6,7 @@
   "scripts": {
     "pretest": "npm run build",
     "test": "npm run coverage",
-    "build": "cross-env NODE_ENV=production ./node_modules/.bin/babel ./src -d lib --ignore '*.spec.js'",
+    "build": "cross-env NODE_ENV=production babel ./src -d lib --ignore '*.spec.js'",
     "postinstall": "npm run build",
     "clean": "rm -rf lib",
     "publish": "git push origin --tags && npm run changelog && git push origin",
