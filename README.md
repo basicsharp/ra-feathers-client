@@ -1,7 +1,9 @@
-# Feathers REST Client for Admin-on-rest
+# Feathers REST Client for React-Admin
 
 The perfect match to build Backend and Frontend Admin, based on REST services.
-For using [feathers](https://www.feathersjs.com) with [admin-on-rest](https://github.com/marmelab/admin-on-rest).
+For using [feathers](https://www.feathersjs.com) with [react-admin](https://github.com/marmelab/react-admin).
+
+based on the code [aor-feathers-client](https://github.com/josx/aor-feathers-client)
 
 ## Features
 * GET_MANY_REFERENCE
@@ -20,16 +22,16 @@ For using [feathers](https://www.feathersjs.com) with [admin-on-rest](https://gi
 
 ## Installation
 
-In your admin-on-rest app just add aor-feathers-client dependency:
+In your react-admin app just add ra-feathers-client dependency:
 
 ```sh
-npm install aor-feathers-client --save
+npm install ra-feathers-client --save
 ```
 
 or
 
 ```sh
-yarn add aor-feathers-client
+yarn add ra-feathers-client
 ```
 
 ## Running tests
@@ -106,8 +108,8 @@ export default feathers()
 ```js
 // in src/App.js
 import React from 'react';
-import { Admin, Resource } from 'admin-on-rest';
-import { authClient, restClient } from 'aor-feathers-client';
+import { Admin, Resource } from 'react-admin';
+import { authClient, restClient } from 'ra-feathers-client';
 import feathersClient from './feathersClient';
 import { PostList } from './posts';
 
@@ -146,8 +148,6 @@ const App = () => (
 
 export default App;
 ```
-
-You can find a complete example in [https://github.com/kfern/feathers-aor-test-integration](https://github.com/kfern/feathers-aor-test-integration)
 
 ## License
 

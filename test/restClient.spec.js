@@ -3,7 +3,7 @@
 const expect = require('chai').expect;
 const sinon = require('sinon');
 const restClient = require('../lib').restClient;
-const types = require('admin-on-rest/lib/rest/types');
+const types = require('react-admin');
 const debug = require('debug')
 
 const dbg = debug('aor-feathers-client:test')

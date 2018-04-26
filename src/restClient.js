@@ -6,8 +6,8 @@ import {
   CREATE,
   UPDATE,
   DELETE
-} from 'admin-on-rest/lib/rest/types'
-import { fetchUtils } from 'admin-on-rest';
+} from 'react-admin'
+import { fetchUtils } from 'react-admin';
 import debug from 'debug'
 import diff from 'object-diff'
 
