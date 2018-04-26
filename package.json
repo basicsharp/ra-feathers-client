@@ -24,7 +24,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spaceindex/aor-feathers-client.git"
+    "url": "git+https://github.com/spaceindex/ra-feathers-client.git"
   },
   "keywords": [
     "reactjs",
@@ -36,9 +36,9 @@
   "author": "Jose Luis Di Biase",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/spaceindex/aor-feathers-client/issues"
+    "url": "https://github.com/spaceindex/ra-feathers-client/issues"
   },
-  "homepage": "https://github.com/spaceindex/aor-feathers-client#readme",
+  "homepage": "https://github.com/spaceindex/ra-feathers-client#readme",
   "peerDependencies": {
     "react-admin": "^2.0.0-RC2",
     "debug": "^3.0.0",
@@ -47,20 +47,23 @@
     "object-diff": "^0.0.4"
   },
   "devDependencies": {
-    "react-admin": "^2.0.0-RC2",
-    "babel-cli": "^6.18.0",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-stage-0": "^6.16.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "chai": "^3.5.0",
+    "cross-env": "^5.1.4",
     "istanbul": "^0.4.5",
     "jwt-decode": "^2.2.0",
     "mocha": "^3.4.1",
     "object-diff": "^0.0.4",
-    "react": "15.4.0",
-    "react-dom": "15.4.0",
-    "sinon": "^2.2.0",
-    "cross-env": "^5.1.4"
+    "react": "^16.3.2",
+    "react-admin": "^2.0.0-RC2",
+    "react-dom": "^16.3.2",
+    "sinon": "^2.2.0"
   },
   "contributors": [
     {
