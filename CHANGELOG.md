@@ -1,4 +1,6 @@
 # Change Log
+## [v0.9.3](https://github.com/spaceindex/ra-feathers-client/tree/v0.9.3) (2018-04-27)
+- changed class names
 ## [v0.9.2](https://github.com/spaceindex/ra-feathers-client/tree/v0.9.1) (2018-04-27)
 - changed project to react-admin
 

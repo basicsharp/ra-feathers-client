@@ -2,11 +2,11 @@
 
 const expect = require('chai').expect;
 const sinon = require('sinon');
-const restClient = require('../lib').restClient;
+const dataProvider = require('../lib').dataProvider;
 const types = require('react-admin');
 const debug = require('debug')
 
-const dbg = debug('aor-feathers-client:test')
+const dbg = debug('ra-feathers-client:test')
 
 const findResult = {
   total: 1,
@@ -20,7 +20,7 @@ const createResult = { id: 1, title: 'created' };
 const removeResult = { id: 1, title: 'deleted' };
 const authenticateResult = {};
 
-let aorClient, fakeClient, fakeService;
+let raClient, fakeClient, fakeService;
 
 function setupClient(options = {}) {
   fakeService = {
@@ -38,7 +38,7 @@ function setupClient(options = {}) {
     authenticate: () => Promise.resolve(authenticateResult)
   };
 
-  aorClient = restClient(fakeClient, options);
+  raClient = dataProvider(fakeClient, options);
 }
 
 
@@ -49,7 +49,7 @@ describe('Rest Client', function () {
     let ids = [1, 2, 3];
     beforeEach(function () {
       setupClient();
-      asyncResult = aorClient(types.GET_MANY, 'posts', { ids });
+      asyncResult = raClient(types.GET_MANY, 'posts', { ids });
     });
 
     it("calls the client's find method", function () {
@@ -95,7 +95,7 @@ describe('Rest Client', function () {
     };
     beforeEach(function () {
       setupClient();
-      asyncResult = aorClient(types.GET_MANY_REFERENCE, 'posts', params);
+      asyncResult = raClient(types.GET_MANY_REFERENCE, 'posts', params);
     });
 
     it("calls the client's find method", function () {
@@ -145,7 +145,7 @@ describe('Rest Client', function () {
     };
     beforeEach(function () {
       setupClient();
-      asyncResult = aorClient(types.GET_LIST, 'posts', params);
+      asyncResult = raClient(types.GET_LIST, 'posts', params);
     });
 
     it("calls the client's find method", function () {
@@ -193,7 +193,7 @@ describe('Rest Client', function () {
 
     it("id-option: calls the client's find method", function () {
       setupClient({id: '_id'});
-      asyncResult = aorClient(types.GET_LIST, 'posts', params);
+      asyncResult = raClient(types.GET_LIST, 'posts', params);
       return asyncResult.then(result => {
         expect(fakeService.find.calledOnce).to.be.true;
       });
@@ -237,7 +237,7 @@ describe('Rest Client', function () {
 
     it("resource-id-option: calls the client's find method", function () {
       setupClient({posts: {id: '_id'}});
-      asyncResult = aorClient(types.GET_LIST, 'posts', params);
+      asyncResult = raClient(types.GET_LIST, 'posts', params);
       return asyncResult.then(result => {
         expect(fakeService.find.calledOnce).to.be.true;
       });
@@ -265,7 +265,7 @@ describe('Rest Client', function () {
 
     it("resource-id-option: calls the client's find method for default handled resource", function () {
       setupClient({widgets: {id: '_id'}});
-      asyncResult = aorClient(types.GET_LIST, 'posts', params);
+      asyncResult = raClient(types.GET_LIST, 'posts', params);
       return asyncResult.then(result => {
         expect(fakeService.find.calledOnce).to.be.true;
       });
@@ -296,7 +296,7 @@ describe('Rest Client', function () {
     let params = { id: 1 };
     beforeEach(function () {
       setupClient();
-      asyncResult = aorClient(types.GET_ONE, 'posts', params);
+      asyncResult = raClient(types.GET_ONE, 'posts', params);
     });
 
     it("calls the client's get method with the id in params", function () {
@@ -322,7 +322,7 @@ describe('Rest Client', function () {
     };
     beforeEach(function () {
       setupClient();
-      asyncResult = aorClient(types.UPDATE, 'posts', params);
+      asyncResult = raClient(types.UPDATE, 'posts', params);
     });
 
     it("calls the client's update method with the id and data in params", function () {
@@ -347,7 +347,7 @@ describe('Rest Client', function () {
     };
     beforeEach(function () {
       setupClient();
-      asyncResult = aorClient(types.CREATE, 'posts', params);
+      asyncResult = raClient(types.CREATE, 'posts', params);
     });
 
     it("calls the client's create method with the data in params", function () {
@@ -368,7 +368,7 @@ describe('Rest Client', function () {
     let params = { id: 1 };
     beforeEach(function () {
       setupClient();
-      asyncResult = aorClient(types.DELETE, 'posts', params);
+      asyncResult = raClient(types.DELETE, 'posts', params);
     });
 
     it("calls the client's remove method with the id in params", function () {
@@ -391,9 +391,9 @@ describe('Rest Client', function () {
     });
 
     it('should throw an error', function () {
-      const errorRes = new Error('Unsupported FeathersJS restClient action type WRONG_TYPE')
+      const errorRes = new Error('Unsupported FeathersJS dataProvider action type WRONG_TYPE')
       try {
-        return aorClient('WRONG_TYPE', 'posts', {})
+        return raClient('WRONG_TYPE', 'posts', {})
           .then(result => {
             throw new Error("client must reject");
           })

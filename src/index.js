@@ -1,2 +1,2 @@
-export authClient from './authClient';
-export restClient from './restClient';
+export authProvider from './authProvider';
+export dataProvider from './dataProvider';
